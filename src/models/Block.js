@@ -3,7 +3,12 @@ class Block {
   /* 构造函数需要包含
 
   */
-  constructor() {}
+  constructor(blockchain,previoushash,nonce,timestamp) {
+    this.blockchain=blockchain
+    this.previoushash=previoushash
+    this.nonce=nonce
+    this.timestamp=timestamp
+  }
 }
 
 export default Block

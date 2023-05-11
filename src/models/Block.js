@@ -3,11 +3,11 @@ class Block {
   /* 构造函数需要包含
 
   */
-  constructor(blockchain,previoushash,nonce,timestamp) {
+  constructor(blockchain,previoushash,height,hash) {
     this.blockchain=blockchain
-    this.previoushash=previoushash
-    this.nonce=nonce
-    this.timestamp=timestamp
+    this.previousHash=previoushash
+    this.height=height
+    this.hash=hash
   }
 }
 

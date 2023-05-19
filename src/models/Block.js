@@ -9,6 +9,16 @@ class Block {
     this.height=height
     this.hash=hash
   }
+
+  isValid () {
+    const leadingZero = '0'.repeat(DIFFICULTY)
+
+    return (this.nonce + "").startsWith(leadingZero)
+  }
+  setNonce (nonce) {
+    this.nonce = nonce
+  }
 }
 
 export default Block
+export const DIFFICULTY = 3

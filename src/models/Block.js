@@ -8,6 +8,16 @@ class Block {
     this.previousHash=previoushash
     this.height=height
     this.hash=hash
+    this.coinbaseBeneficiary = miner
+    this.utxoPool = new UTXOPool({})
+  }
+
+  getPreviousBlock () {
+    // 判断是否为高度为1的区块
+    if (this.height == 1) {
+      return this.blockchain.genesis
+    }
+    return this.blockchain.blocks[this.parentHash]
   }
 
   isValid () {

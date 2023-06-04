@@ -1,13 +1,18 @@
+import sha256 from 'crypto-js/sha256.js'
+import UTXOPool from './UTXOPool.js'
+
 class Block {
   // 1. 完成构造函数及其参数
   /* 构造函数需要包含
-
+   -名字
+   -创世区块
+   -存储区块的映射
   */
-  constructor(blockchain,previoushash,height,hash) {
-    this.blockchain=blockchain
-    this.previousHash=previoushash
-    this.height=height
-    this.hash=hash
+  constructor(blockchain, parentHash, height, hash, miner) {
+    this.blockchain = blockchain
+    this.parentHash = parentHash
+    this.height = height
+    this.hash = hash
     this.coinbaseBeneficiary = miner
     this.utxoPool = new UTXOPool({})
   }
@@ -22,12 +27,17 @@ class Block {
 
   isValid () {
     const leadingZero = '0'.repeat(DIFFICULTY)
-
-    return (this.nonce + "").startsWith(leadingZero)
+    this.setHash()
+    return this.hash.startsWith(leadingZero)
   }
+
   setNonce (nonce) {
     this.nonce = nonce
   }
+  setHash () {
+    this, this.hash = sha256(this.nonce + this.parentHash + this.height + this.blockchain).toString()
+  }
+
 }
 
 export default Block

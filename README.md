@@ -189,10 +189,8 @@ https://github.com/CUITBlockchain/blockchain-in-js-workshop-2021/commit/25f3a0d8
 
 ### 代码截图
 
-> 将截图上传至网盘，放入链接即可
-
-![](链接)
-
+链接：https://pan.baidu.com/s/1K6DUNxCMLCzUh3azeyqqnw?pwd=6zi2 
+提取码：6zi2
 
 ### 主观与讨论题内容
 

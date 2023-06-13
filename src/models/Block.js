@@ -40,5 +40,6 @@ class Block {
 
 }
 
+
 export default Block
 export const DIFFICULTY = 3

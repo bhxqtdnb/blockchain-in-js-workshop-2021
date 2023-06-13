@@ -36,6 +36,18 @@ class Blockchain {
   containsBlock (block) {
     return this.blocks[block.hash] != null
   }
+
+  maxHeightBlock () {
+    // return Block
+    let maxHeightBlock = this.blocks.element(0)
+    for (let hash in this.blocks) {
+      currentBlock = this.blocks[hash]
+      if (currentBlock.height > maxHeightBlock.height) {
+        maxHeightBlock = currentBlock
+      }
+    }
+    return maxHeightBlock
+  }
   
   //添加区块
   _addBlock (block) {

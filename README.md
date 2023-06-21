@@ -241,7 +241,7 @@ https://github.com/bhxqtdnb/blockchain-in-js-workshop-2021/commit/2474af88bda426
 
 ### 代码 commint 地址
 
-https://github.com/CUITBlockchain/blockchain-in-js-workshop-2021/commit/25f3a0d83a9fff2b4514c5503f470df939d0c2af
+https://github.com/bhxqtdnb/blockchain-in-js-workshop-2021/commit/54dd92afed222e8dd57eba98510b6a34c119241c
 
 
 ### 代码截图

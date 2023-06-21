@@ -17,13 +17,21 @@ class UTXOPool {
   }
 
   // 处理交易函数
-  handleTransaction (tra) {
-    // 首先构建一个UTXO
-    console.log("test1" + tra.receiverPubKey)
-    if (this.isValidTransaction(tra.miner, tra.num)) {
-      this.addUTXO(new UTXO(tra.receiverPubKey, tra.num))
-      this.utxos[tra.miner] = { amount: this.utxos[tra.miner].amount - tra.num }
+  handleTransaction (trx, miner) {
+    if (!this.isValidTransaction(trx)) {
+      return false
     }
+    //对输入进行扣除
+    this.utxos[trx.in].amount -= (trx.amount + trx.fee)
+    //给矿工小费fee lesson6
+    this.utxos[miner].amount += trx.fee
+    //给输出转账
+    if (this.utxos[trx.out]) {
+      this.utxos[trx.out].amount += trx.amount
+    } else {
+      this.utxos[trx.out] = new UTXO(trx.amount)
+    }
+    return true
   }
 
 

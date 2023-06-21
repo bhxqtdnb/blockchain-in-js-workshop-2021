@@ -1,6 +1,5 @@
 export default class UTXO {
-    constructor(pubKey, amount) {
-      this.pubKey = pubKey
+    constructor(amount) {
       this.amount = amount
     }
   }

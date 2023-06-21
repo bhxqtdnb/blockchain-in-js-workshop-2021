@@ -66,6 +66,23 @@ class Blockchain {
       block.utxoPool._addUTXO(coinbaseUTXO)
     }
   }
+
+    //获取父区块的utxoPool结果
+    getPreBlockUTXO (preHash) {
+      if (preHash == "root") {
+        return new UTXOPool(new Map())
+      }
+      return this.blocks[preHash].utxoPool
+    }
+  
+    //根据coinBase交易更新UTXOPOOL的状态,即添加一个矿工的utxo
+    coinBaseTransaction (preHash, coinbaseBeneficiary) {
+      //用父区块的utxoPool来更新  
+      let Pool = this.getPreBlockUTXO(preHash)
+  
+      Pool.addUTXO(coinbaseBeneficiary, 12.5)
+      return Pool
+    }
   
 }
 export default Blockchain
